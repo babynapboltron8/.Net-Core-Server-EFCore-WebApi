@@ -37,4 +37,50 @@
 ## .NET Core CLI - EF Core packages
 
 - Install the dotnet-ef tool: `dotnet tool install --globall dotnet-ef`
+- Verify installation: `dotnet ef`
 - Install EF Core packages: `dotnet add package Microsoft.EntityFrameworkCore.SqlServer` and `dotnet add package Microsoft.EntityFrameworkCore.Design`
+
+## Creating the database migrationn
+
+- Install the command: `dotnet ef migrations add InitialDb`
+- Command to create database: `dotnet ef database update`
+- View existing migrations list: `dotnet ef migrations list`
+- Remove the last migration: `dotnet ef migrations remove`
+
+## Project Structure After Migration
+
+Migrations/
+├── 20260627140333_InitialDb.cs
+├── 20260627140333_InitialDb.Designer.cs
+└── InvoiceDbContextModelSnapshot.cs
+
+## What Each File Migrations Does
+
+- `InitialDb.cs` — Contains the migration operations (CreateTable, AddColumn, etc.).
+- `InitialDb.Designer.cs` — Stores metadata about the migration.
+- `InvoiceDbContextModelSnapshot.cs` — Represents the latest database model and is used by EF Core to detect future changes.
+
+## Connecting to SQL Server LocalDB in VS Code
+
+- Open the **SQL Server** extension in VS Code.
+- Click **+ Add Connection**.
+
+## Connection Settings
+
+| Setting                 | Value                                                      |
+| ----------------------- | ---------------------------------------------------------- |
+| **Server name**         | `(localdb)\MSSQLLocalDB`                                   |
+| **Authentication Type** | Windows Authentication                                     |
+| **User name**           | _(leave empty)_                                            |
+| **Password**            | _(leave empty)_                                            |
+| **Database**            | `ServerApiEfCore` _(or leave blank to view all databases)_ |
+
+## Connect
+
+`Click **Connect**.`
+
+## Verify LocalDB Instance
+
+- If the connection fails, verify that the LocalDB instance exists: `sqllocaldb info`
+
+- Start the LocalDB instance if it is stopped: `sqllocaldb start MSSQLLocalDB`
