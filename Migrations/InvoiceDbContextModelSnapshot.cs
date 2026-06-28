@@ -1,4 +1,11 @@
-﻿#nullable disable
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
+using ServerApiEfCore.Data;
+
+#nullable disable
 // Disables nullable reference warnings in this generated file
 
 namespace ServerApiEfCore.Migrations
@@ -76,8 +83,15 @@ namespace ServerApiEfCore.Migrations
                         Amount = 100m,
                         ContactName = "John Doe",
                         Description = "Invoice for the first month",
-                        DueDate = new DateTimeOffset(...),
-                        InvoiceDate = new DateTimeOffset(...),
+                        DueDate = new DateTimeOffset(
+                        new DateTime(2024, 7, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                        new TimeSpan(0)
+                    ),
+
+                        InvoiceDate = new DateTimeOffset(
+                        new DateTime(2024, 6, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                        new TimeSpan(0)
+                    ),
                         InvoiceNumber = "INV-001",
                         Status = 1
                     });

@@ -1,4 +1,11 @@
-﻿#nullable disable
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
+using ServerApiEfCore.Data;
+
+#nullable disable
 // Disables nullable warnings in generated migration code
 
 namespace ServerApiEfCore.Migrations
