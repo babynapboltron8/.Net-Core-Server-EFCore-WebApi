@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ServerApiEfCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5642e69d782c61501a1e0b56d543de842292e68")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aee838101727a87bfb97dfd91a566ccf42e7a9d0")]
 [assembly: System.Reflection.AssemblyProductAttribute("ServerApiEfCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ServerApiEfCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -67,13 +67,11 @@ Migrations/
 
 ## Connection Settings
 
-| Setting                 | Value                                                      |
-| ----------------------- | ---------------------------------------------------------- |
-| **Server name**         | `(localdb)\MSSQLLocalDB`                                   |
-| **Authentication Type** | Windows Authentication                                     |
-| **User name**           | _(leave empty)_                                            |
-| **Password**            | _(leave empty)_                                            |
-| **Database**            | `ServerApiEfCore` _(or leave blank to view all databases)_ |
+- Server name: `(localdb)\MSSQLLocalDB`
+- Authentication: Windows Authentication
+- User name: _(leave empty)_
+- Password: _(leave empty)_
+- Database: `ServerApiEfCore` _(or leave blank to view all databases)_
 
 ## Connect
 
@@ -84,3 +82,44 @@ Migrations/
 - If the connection fails, verify that the LocalDB instance exists: `sqllocaldb info`
 
 - Start the LocalDB instance if it is stopped: `sqllocaldb start MSSQLLocalDB`
+
+# Scaffolding an ASP.NET Core Web API Controller
+
+Use the ASP.NET Core Code Generator to automatically create a CRUD API controller for an Entity Framework Core model.
+
+## Command
+
+```bash
+dotnet-aspnet-codegenerator controller -name InvoicesController -api -outDir Controllers --model Invoice --dataContext InvoiceDbContext -async -actions
+```
+
+## Command Breakdown
+
+- `controller` — Create a controller.
+- `-name InvoicesController` — Controller name.
+- `-api` — Generate an API controller.
+- `-outDir Controllers` — Save it in the `Controllers` folder.
+- `--model Invoice` — Use the `Invoice` model.
+- `--dataContext InvoiceDbContext` — Use the `InvoiceDbContext`.
+- `-async` — Generate async methods.
+- `-actions` — Generate CRUD actions.
+
+## What Gets Generated?
+
+A new `InvoicesController` containing:
+
+- ✅ GET all invoices
+- ✅ GET invoice by ID
+- ✅ POST (Create)
+- ✅ PUT (Update)
+- ✅ DELETE (Remove)
+
+## Purpose
+
+Scaffolding saves development time by automatically generating boilerplate CRUD code. It is commonly used for:
+
+- Learning ASP.NET Core
+- Rapid prototyping
+- Creating an initial CRUD controller
+
+In production projects, developers often customize or refactor the generated code to match the application's architecture and business requirements.
