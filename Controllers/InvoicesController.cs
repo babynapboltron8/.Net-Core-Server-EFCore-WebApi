@@ -23,9 +23,22 @@ namespace ServerApiEfCore.Controllers
 
         // GET: api/Invoices
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Invoice>>> GetInvoices()
+        /* Returns a list of invoices, optionally filtered by status*/
+        // public async Task<ActionResult<IEnumerable<Invoice>>> GetInvoices(InvoiceStatus? status)
+        // {
+        //     return await _context.Invoices.Where(x => status == null || 
+        //     x.Status == status).ToListAsync();
+        // }
+
+        /*Sorting, filtering, and pagination*/
+        public async Task<ActionResult<IEnumerable<Invoice>>> GetInvoices(int page = 1, int pageSize = 10, InvoiceStatus? status = null)
         {
-            return await _context.Invoices.ToListAsync();
+            return await _context.Invoices.AsQueryable()
+                .Where(x => status == null || x.Status == status)
+                .OrderByDescending(x => x.InvoiceDate)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
         }
 
         // GET: api/Invoices/5
