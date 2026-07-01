@@ -14,8 +14,9 @@ namespace ServerApiEfCore.Controllers
     [ApiController]
     public class InvoicesController : ControllerBase
     {
+        /*Dependency Injection automatically 
+        provides the configured InvoiceDbContext.*/
         private readonly InvoiceDbContext _context;
-
         public InvoicesController(InvoiceDbContext context)
         {
             _context = context;
