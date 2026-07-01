@@ -224,7 +224,7 @@ Now begin building the backend.
 Create the backend application.
 
 ```bash
-dotnet new webapi
+dotnet new webapi -n *folder name* -controllers
 ```
 
 This creates
